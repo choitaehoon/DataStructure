@@ -4,18 +4,19 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class ParenthesesCheck 
-{ // ÀÏ´Ü ()¸ÕÀú ÇØº¸±â
+{ // ì¼ë‹¨ ()ë¨¼ì € í•´ë³´ê¸°
+	
 	public static void main(String[] args)  
 	{
-		System.out.println("hw7_1:ÃÖÅÂÈÆ");
+		System.out.println("hw7_1:ìµœíƒœí›ˆ");
 		Scanner input = new Scanner(System.in);
 		Stack<String> stack = new Stack<String>();
 		
-		String a;// °ªÀÔ·Â
-		char b = 0;//°ªÀúÀåº¯¼ö
-		String c;// pop ÀúÀå º¯¼ö
+		String a;// ê°’ì…ë ¥
+		char b = 0;//ê°’ì €ì¥ë³€ìˆ˜
+		String c;// pop ì €ì¥ ë³€ìˆ˜
 
-		System.out.println("°ıÈ£½Ä ÀÔ·Â:");
+		System.out.println("ê´„í˜¸ì‹ ì…ë ¥:");
 		a = input.next();
 
 		for(int i=0; i<a.length(); i++)
@@ -32,7 +33,7 @@ public class ParenthesesCheck
 			case ')':
 				if(stack.size() == 0)
 				{
-					System.out.println("Àß¸øµÈ ¼ö½ÄÀÔ´Ï´Ù");
+					System.out.println("ì˜ëª»ëœ ìˆ˜ì‹ì…ë‹ˆë‹¤");
 					System.exit(0);
 				}
 				else
@@ -40,7 +41,7 @@ public class ParenthesesCheck
 					c = stack.pop();
 					if(c != "(")
 					{
-					System.out.println("Àß¸øµÈ ¼ö½ÄÀÔ´Ï´Ù");
+					System.out.println("ì˜ëª»ëœ ìˆ˜ì‹ì…ë‹ˆë‹¤");
 					System.exit(0);
 					}
 					
@@ -49,7 +50,7 @@ public class ParenthesesCheck
 			case '}' :
 				if(stack.size() == 0)
 				{
-					System.out.println("Àß¸øµÈ ¼ö½ÄÀÔ´Ï´Ù");
+					System.out.println("ì˜ëª»ëœ ìˆ˜ì‹ì…ë‹ˆë‹¤");
 					System.exit(0);
 				}
 				else
@@ -57,7 +58,7 @@ public class ParenthesesCheck
 					c = stack.pop();
 					if(c != "{")
 					{
-						System.out.println("Àß¸øµÈ ¼ö½ÄÀÔ´Ï´Ù");
+						System.out.println("ì˜ëª»ëœ ìˆ˜ì‹ì…ë‹ˆë‹¤");
 						System.exit(0);
 					}
 
@@ -66,7 +67,7 @@ public class ParenthesesCheck
 			case ']' :
 				if(stack.size() == 0)
 				{
-					System.out.println("Àß¸øµÈ ¼ö½ÄÀÔ´Ï´Ù");
+					System.out.println("ì˜ëª»ëœ ìˆ˜ì‹ì…ë‹ˆë‹¤");
 					System.exit(0);
 				}
 				else
@@ -74,7 +75,7 @@ public class ParenthesesCheck
 					c = stack.pop();
 					if(c != "[")
 					{
-						System.out.println("Àß¸øµÈ ¼ö½ÄÀÔ´Ï´Ù");
+						System.out.println("ì˜ëª»ëœ ìˆ˜ì‹ì…ë‹ˆë‹¤");
 						System.exit(0);
 					}
 				}
@@ -82,7 +83,7 @@ public class ParenthesesCheck
 			case '>' :
 				if(stack.size() == 0)
 				{
-					System.out.println("Àß¸øµÈ ¼ö½ÄÀÔ´Ï´Ù");
+					System.out.println("ì˜ëª»ëœ ìˆ˜ì‹ì…ë‹ˆë‹¤");
 					System.exit(0);
 				}
 				else
@@ -90,7 +91,7 @@ public class ParenthesesCheck
 					c = stack.pop();
 					if(c != "<")
 					{
-						System.out.println("Àß¸øµÈ ¼ö½ÄÀÔ´Ï´Ù");
+						System.out.println("ì˜ëª»ëœ ìˆ˜ì‹ì…ë‹ˆë‹¤");
 					System.exit(0);
 					}
 				}
@@ -100,9 +101,9 @@ public class ParenthesesCheck
 		}
 	
 		if(stack.isEmpty() != true)
-			System.out.println("Àß¸øµÈ ¼ö½ÄÀÔ´Ï´Ù");
+			System.out.println("ì˜ëª»ëœ ìˆ˜ì‹ì…ë‹ˆë‹¤");
 		else
-			System.out.println("¿Ã¹Ù¸¥ ¼ö½ÄÀÔ´Ï´Ù");
+			System.out.println("ì˜¬ë°”ë¥¸ ìˆ˜ì‹ì…ë‹ˆë‹¤");
 		
 	}
 }
