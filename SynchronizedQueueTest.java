@@ -2,12 +2,12 @@ package lab8_1;
 
 public class SynchronizedQueueTest {
 	public static void main(String[] args) {
-		System.out.println("lab8_1: È«±æµ¿");
+		System.out.println("lab8_1: ìµœíƒœí›ˆ");
 
-		// Å©±â 5ÀÎ ¿øÇü Å¥¸¦ »ı¼º
+		// í¬ê¸° 5ì¸ ì›í˜• íë¥¼ ìƒì„±
 		SynchronizedQueue queue = new SynchronizedQueue(5);
 
-		// ¿øÇü Å¥¸¦ °øÀ¯ÇÏ´Â »ı»êÀÚ ½º·¹µå, ¼ÒºñÀÚ ½º·¹µå¸¦ ½ÇÇà
+		// ì›í˜• íë¥¼ ê³µìœ í•˜ëŠ” ìƒì‚°ì ìŠ¤ë ˆë“œ, ì†Œë¹„ì ìŠ¤ë ˆë“œë¥¼ ì‹¤í–‰
 		Thread producer = new ProducerThread(queue);
 		Thread consumer = new ConsumerThread(queue);
 		
@@ -28,7 +28,7 @@ class ProducerThread extends Thread {
 	@Override
 	public void run() {
 		for(int i = 1; i <= 20; i++) {
-			System.out.println(currentThread().getName() + ": " + i + " »ı»ê"); 
+			System.out.println(currentThread().getName() + ": " + i + " ìƒì‚°"); 
 			try {
 				queue.enQueue(i);
 				sleep((int) (Math.random() * 1000));
@@ -54,14 +54,14 @@ class ConsumerThread extends Thread {
 			sleep(3000);
 			for(int i = 0; i < 20; i++) {
 				int value = queue.deQueue();		
-				System.out.println("\t\t\t" + currentThread().getName() + ": " + value + " ¼Òºñ"); 
+				System.out.println("\t\t\t" + currentThread().getName() + ": " + value + " ì†Œë¹„"); 
 				sum += value;
 				sleep((int) (Math.random() * 500));
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("¼ÒºñÀÚ°¡ °è»êÇÑ Á¤¼ö ÇÕ = " + sum);
+		System.out.println("ì†Œë¹„ìê°€ ê³„ì‚°í•œ ì •ìˆ˜ í•© = " + sum);
 	}
 }
 
