@@ -125,7 +125,7 @@ class MyBinarySearchTree {
 	{
 		return add(key, root);
 	}
-	//반복알고리즘 사용하기
+	//반복알고리즘 사용하기 (다시 생각해보기)
 	private boolean add(int key, Node temp)
 	{
 		Node newNode = new Node(key);
