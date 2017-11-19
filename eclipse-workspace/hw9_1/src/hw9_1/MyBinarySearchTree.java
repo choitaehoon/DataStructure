@@ -125,29 +125,67 @@ class MyBinarySearchTree {
 	{
 		return add(key, root);
 	}
-	//반복알고리즘 사용하기 (다시 생각해보기)
+	
+	//반복알고리즘 사용하기
 	private boolean add(int key, Node temp)
 	{
 		Node newNode = new Node(key);
-		Node tmp = root;
-		if(tmp == null)
+		if(temp == null)
 		{
 			root = newNode;
 			return true;
 		}
-		else 
+		else
 		{
-				while(tmp != null)
+			while(temp != null)
+			{
+				if(temp.key == key)
+					return false;
+				else if(temp.key < key)
 				{
-					if(key == tmp.key)
-						return false;
-					else if(tmp.key > key)
-						tmp = tmp.rightChild;
+					if(temp.rightChild == null)
+					{
+						temp.rightChild = newNode;	
+						return true;
+					}
 					else
-						tmp = tmp.leftChild;
+						temp.rightChild = temp;
 				}
-				tmp = newNode;
+				else
+				{
+					if(temp.leftChild == null)
+					{
+						temp.leftChild = newNode;
+						return true;
+					}
+					else
+						temp.leftChild = temp;
+				}
+			}
+			return true;		
 		}
-		return false;
 	}
+//		Node tmp = root;
+//		
+//		if(tmp == null)
+//		{
+//			root = newNode;
+//			return true;
+//		}
+//		
+//		else 
+//		{
+//				while(tmp != null)
+//				{
+//					if(key == tmp.key)
+//						return false;
+//					else if(tmp.key > key)
+//						tmp = tmp.rightChild;
+//					else
+//						tmp = tmp.leftChild;
+//				}
+//				tmp = newNode;
+//		}
+//		return false;
+	
 }
