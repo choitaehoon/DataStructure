@@ -12,8 +12,8 @@ class MyBinarySearchTree {
 			this.key = key;
 		}
 		int key;
-		Node leftChild;
-		Node rightChild;
+		Node leftChild ;
+		Node rightChild ;
 	}
 
 	// (1) 전체조회를 위한 toString() 오버라이드
@@ -140,16 +140,20 @@ class MyBinarySearchTree {
 			while(temp != null)
 			{
 				if(temp.key == key)
-					return false;
+				{
+					return false;	
+				}
 				else if(temp.key < key)
 				{
 					if(temp.rightChild == null)
 					{
-						temp.rightChild = newNode;	
+						temp.rightChild = newNode;
 						return true;
-					}
+					}	
 					else
-						temp.rightChild = temp;
+					{
+						temp = temp.rightChild;	
+					}
 				}
 				else
 				{
@@ -159,33 +163,13 @@ class MyBinarySearchTree {
 						return true;
 					}
 					else
-						temp.leftChild = temp;
+					{
+						temp = temp.leftChild;	
+					}
 				}
 			}
-			return true;		
+			return false;
 		}
 	}
-//		Node tmp = root;
-//		
-//		if(tmp == null)
-//		{
-//			root = newNode;
-//			return true;
-//		}
-//		
-//		else 
-//		{
-//				while(tmp != null)
-//				{
-//					if(key == tmp.key)
-//						return false;
-//					else if(tmp.key > key)
-//						tmp = tmp.rightChild;
-//					else
-//						tmp = tmp.leftChild;
-//				}
-//				tmp = newNode;
-//		}
-//		return false;
 	
 }
