@@ -104,7 +104,7 @@ class MyBinarySearchTree {
 	{
 		 return max(root);
 	}
-	//정보 은닉
+	//정보 은닉 (확인하기)
 	private int max(Node temp) throws NullPointerException
 	{
 		if(temp == null)
@@ -114,7 +114,7 @@ class MyBinarySearchTree {
 		else
 		{
 			int data = 0;
-			if(temp != null)
+			if(temp.rightChild != null)
 			data = max(temp.rightChild);
 			return temp.key > data ? temp.key : data;	
 		}
@@ -140,9 +140,8 @@ class MyBinarySearchTree {
 			while(temp != null)
 			{
 				if(temp.key == key)
-				{
 					return false;	
-				}
+
 				else if(temp.key < key)
 				{
 					if(temp.rightChild == null)
@@ -151,10 +150,9 @@ class MyBinarySearchTree {
 						return true;
 					}	
 					else
-					{
 						temp = temp.rightChild;	
-					}
 				}
+				
 				else
 				{
 					if(temp.leftChild == null)
@@ -163,9 +161,7 @@ class MyBinarySearchTree {
 						return true;
 					}
 					else
-					{
 						temp = temp.leftChild;	
-					}
 				}
 			}
 			return false;
